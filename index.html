@@ -14,16 +14,13 @@
     <div id="mensaje"></div>
     <a-camera gps-camera rotation-reader></a-camera>
 
-        <a-assets>
-            <video id="penguin-sledding" autoplay loop="true" src="https://youtu.be/hEtSAOkjKVI"></video>
-        </a-assets>
-
         <a-image
                     src="assets/asset.jpeg"
                     look-at="[gps-camera]"
                     scale="1 1 1"
                     gps-entity-place="latitude: 37.192219; longitude: -3.616573;"
          ></a-image>
+
     </a-scene>
   </body>
 
@@ -39,9 +36,12 @@
             div.innerHTML = "Prueba";
         });
 
-        cargarModelos();
+        // cargarModelos();
     }
 
+    function cargarImagen(){
+        const imagenes = 
+    }
     function cargarModelos(){
         const modelos = [
             {
