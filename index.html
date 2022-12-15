@@ -30,19 +30,17 @@
     {
         let camara = document.querySelector('a-camera');
 
-        camara.addEventListener("gps-camera-update-position", ()=>
+        camara.addEventListener("gps-camera-update-position", () =>
         {
             let div = document.getElementById("mensaje");
             div.innerHTML = "Prueba";
         });
 
-        // cargarModelos();
+        cargarPuntosTuristicos();
     }
 
-    function cargarImagen(){
-        const imagenes = 
-    }
-    function cargarModelos(){
+  
+    function cargarPuntosTuristicos(){
         const modelos = [
             {
                 latitud: 37.192249,
@@ -75,16 +73,40 @@
                 coso: "a-sphere"
             }
         ];
-
         
-        for (let i = 0; i < modelos.length; i++){
-            const modelo = document.createElement(modelos[i].coso);
-            modelo.setAttribute('material', 'color:' + modelos[i].color);
-            modelo.setAttribute('scale', '0.5 0.5 0.5');
-            modelo.setAttribute('gps-entity-place', `latitude: ${modelos[i].latitud}; longitude: ${modelos[i].longitud};`);
+        const imagenes = [
+            {
+                latitud: 37.192249,
+                longitud: -3.616615,
+                src: "assets/asset.jpeg"
+            },
+            {
+                latitud: 37.192249,
+                longitud: -3.616615,
+                src: "assets/asset1.jpg"
+            },
+            {
+                latitud: 37.18681432177221,
+                longitud: -3.7209667806860285,
+                src: "assets/asset2.jpg"
+            },
+            {
+                latitud: 37.186826608559954,
+                longitud: -3.7209352647337917,
+                src: "assets/asset3.jpg"
+            }
+        ]
+        
+        // cargar imagenes
+        for (let i = 0; i < imagenes.length; i++){
+            const imagen = document.createElement('a-image');
+            imagen.setAttribute('src', imagenes[i].src);
+            imagen.setAttribute('look-at','[gps-camera]')
+            imagen.setAttribute('scale', '1 1 1');
+            imagen.setAttribute('gps-entity-place', `latitude: ${imagenes[i].latitud}; longitude: ${imagenes[i].longitud};`);
 
             const scene = document.querySelector('a-scene');
-            scene.appendChild(modelo);
+            scene.appendChild(imagenes);
         }
     }
   
